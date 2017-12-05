@@ -7,7 +7,7 @@ Persist camera location between refreshes or visits.
 
 For [A-Frame](https://aframe.io).
 
-Check out the examples here: https://jeremyruhland.github.io/aframe-location-persistance-component
+Check out the examples here: https://jeremyruhland.github.io/aframe-location-persistance-component/
 
 ### API
 
