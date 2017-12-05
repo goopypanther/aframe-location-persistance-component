@@ -5,7 +5,8 @@ if (typeof AFRAME === 'undefined') {
 /**
  * Location Persistance component for A-Frame.
  * Camera listener updates camera position and rotation as you move.
- * Stores data into browser localStorage using key cameraPosRot.
+ * Stores data into browser localStorage using key cameraPosRot-*, where * is
+ * the current url path.
  * This component is intended to be used in the <a-camera> tag.
  */
 AFRAME.registerComponent('location-persistance', {
@@ -17,11 +18,11 @@ AFRAME.registerComponent('location-persistance', {
         var newPosRot = {pos: null, rot: null};
          
         // Check if localStorage key exist first
-        if ('cameraPosRot' in localStorage) {
-            var posRot = JSON.parse(localStorage.getItem('cameraPosRot'));
+        if ('cameraPosRot-' + window.location.pathname in localStorage) {
+            var posRot = JSON.parse(localStorage.getItem('cameraPosRot-' + window.location.pathname));
 
-            this.el.setAttribute('position', posRot.pos);
-            this.el.setAttribute('rotation', posRot.rot);
+                this.el.setAttribute('position', posRot.pos);
+                this.el.setAttribute('rotation', posRot.rot);
         }
 
         // Run these checks every time component changes
@@ -30,7 +31,7 @@ AFRAME.registerComponent('location-persistance', {
                 newPosRot.pos = event.target.getAttribute('position');
                 newPosRot.rot = event.target.getAttribute('rotation');
                 
-                localStorage.setItem('cameraPosRot', JSON.stringify(newPosRot));
+                localStorage.setItem('cameraPosRot-' + window.location.pathname, JSON.stringify(newPosRot));
             }
         });
     }

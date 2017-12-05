@@ -3,7 +3,7 @@
 [![Version](http://img.shields.io/npm/v/aframe-location-persistance-component.svg?style=flat-square)](https://npmjs.org/package/aframe-location-persistance-component)
 [![License](http://img.shields.io/npm/l/aframe-location-persistance-component.svg?style=flat-square)](https://npmjs.org/package/aframe-location-persistance-component)
 
-Persist camera location between refreshes or visits.
+Persist camera location between refreshes or visits by storing data in localStorage.
 
 For [A-Frame](https://aframe.io).
 
